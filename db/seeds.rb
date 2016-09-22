@@ -1,5 +1,5 @@
 Student.delete_all
-Addition.delete_all
+Result.delete_all
 
 students = ["tommy", "tammy", "terence", "Lilly"]
 
@@ -18,6 +18,6 @@ results = [
   {first_number: 8, second_number: 8, correct: true, question_type: "addition", student: Student.find(4)},
 ]
 
-results.each do |addition|
-  Result.create(addition)
+results.each do |result|
+  Result.create(result)
 end
