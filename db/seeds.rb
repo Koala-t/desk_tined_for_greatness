@@ -1,11 +1,15 @@
+Teacher.delete_all
 Student.delete_all
 Result.delete_all
+TeachersStudents.delete_all
 
 students = ["tommy", "tammy", "terence", "Lilly"]
 
 students.each do |name|
   Student.create(name: name)
 end
+
+teacher = Teacher.create(name: "Mr/Mrs Smith")
 
 results = [
   {first_number: 1, second_number: 1, correct: true, question_type: "addition", student: Student.find(1)},
@@ -20,4 +24,9 @@ results = [
 
 results.each do |result|
   Result.create(result)
+end
+
+
+Student.all.each do |student|
+  TeachersStudents.create(student: student, teacher: teacher)
 end
