@@ -1,7 +1,14 @@
 post '/results' do
-  result = Result.new()
+  question = Question.find(session[:question_id])
+  result = Result.new(first_number: question.first,
+                      second_number: question.second,
+                      question_type: question.category,
+                      correct: correct?(question, params[:answer]),
+                      student: currentUser)
 
-  result.first_number = session[:question]
-  result.second_number = session[:question]
-  p result
+  if result.save
+    redirect :'questions/new'
+  else
+    redirect :'partials/_questionDisplay'
+  end
 end
