@@ -9,17 +9,16 @@ helpers do
     solution == submitted_value.to_i
   end
 
-  def pullRecord(type)
-    user = currentUser
-    addition = currentUser.results.where(question_type: type)
+  def pullRecord(type, user)
+    addition = user.results.where(question_type: type)
     correct = addition.where(correct: true).count
     incorrect = addition.where(correct: false).count
 
     {correct: correct, incorrect: incorrect}
   end
 
-  def percentage(type)
-    record = pullRecord(type)
+  def percentage(type, user)
+    record = pullRecord(type, user)
     if (record[:correct] + record[:incorrect]) == 0
       "You have not answered any questions of this type yet."
     else

@@ -8,6 +8,11 @@ get '/users/:id' do
 end
 
 get '/users/:id/history' do
-  @user = currentUser
+  @user = User.find(params[:id])
   erb :'students/history'
+end
+
+get '/users/:id/classHistory' do
+  @class = currentUser.students
+  erb :'teachers/classHistory'
 end
