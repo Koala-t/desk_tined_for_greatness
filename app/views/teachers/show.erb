@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Welcome back <%= @user.name %>!</h1>
+
+  <ul>
+    <h3>Would you like to...</h3>
+    <li><a href="/users/results/show">See your students results?</a></li>
+    <li><a href="/class/index">Start Class?</a></li>
+  </ul>
+
+  <form action="/sessions/<%= currentUser.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log Out">
+  </form>
+
+</div>
