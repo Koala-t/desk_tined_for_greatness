@@ -18,3 +18,15 @@ get '/partials/_questionDisplay' do
   @question = Question.find(session[:question_id])
   erb :'partials/_questionDisplay'
 end
+
+post '/questions/quick' do
+  question = Question.new(category: params[:category],
+                          first: number(params[:first]),
+                          second: number(params[:second]))
+  if question.save
+    # need ajax to continue
+    redirect :'partials/_questionDisplay'
+  else
+    redirect :'questions/new'
+  end
+end
