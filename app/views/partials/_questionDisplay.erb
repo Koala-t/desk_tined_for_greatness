@@ -1,6 +1,6 @@
-<h3><%= p session[:question] %> = </h3>
+<h3><%= "#{@question.first} #{operator(@question.category)} #{@question.second}" %> = </h3>
 
-<form>
+<form action="/results" method="post">
   <input type='text' name='answer' placeholder="enter the answer here">
   <input type='submit' value="Done">
 </form>

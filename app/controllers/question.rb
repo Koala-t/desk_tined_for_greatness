@@ -3,12 +3,18 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  p '------------------------------'
-  p params[:category]
-  session[:question] = generateQuestion(params[:category], params[:maxValue])
-  redirect :'partials/_questionDisplay'
+  question = Question.new(category: params[:category],
+                          first: number(params[:maxValue]),
+                          second: number(params[:maxValue]))
+  if question.save
+    session[:question_id] = question.id
+    redirect :'partials/_questionDisplay'
+  else
+    redirect :'questions/new'
+  end
 end
 
 get '/partials/_questionDisplay' do
+  @question = Question.find(session[:question_id])
   erb :'partials/_questionDisplay'
 end

@@ -7,15 +7,14 @@ helpers do
     end
   end
 
-  def generateQuestion(type, max)
+  def operator(type)
     question = {
       multiplication: '*',
       division: '/',
       addition: '+',
       subtraction: '-'
     }
-
-    "#{number(max)} #{question[type.to_sym]} #{number(max)}"
+    question[type.to_sym]
   end
 end
 
