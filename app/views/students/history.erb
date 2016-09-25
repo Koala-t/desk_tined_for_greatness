@@ -1,0 +1,11 @@
+<h2>Here are your records <%= @user.name %>.</h2>
+
+<div>
+  <h4>Addition: <%= percentage('addition') %></h4>
+  <h4>Subtraction: <%= percentage('subtraction') %></h4>
+  <h4>Multiplication: <%= percentage('multiplication') %></h4>
+  <h4>Division: <%= percentage('division') %></h4>
+</div>
+
+
+<a href="/users/<%= currentUser.id %>">Back to menu</a>

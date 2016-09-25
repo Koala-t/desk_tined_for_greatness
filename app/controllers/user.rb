@@ -6,3 +6,8 @@ get '/users/:id' do
     erb :'students/show'
   end
 end
+
+get '/users/:id/history' do
+  @user = currentUser
+  erb :'students/history'
+end

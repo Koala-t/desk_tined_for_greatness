@@ -4,11 +4,11 @@
   <ul>
     <h3>Would you like to...</h3>
     <li><a href="/questions/new">Answer a question?</a></li>
-    <li><a href="/users/results/show">See what needs practice?</a></li>
+    <li><a href="/users/<%= @user.id %>/history">See what needs practice?</a></li>
     <li><a href="/class/index">Start Class?</a></li>
   </ul>
 
-  <form action="/sessions/<%= currentUser.id %>" method="post">
+  <form action="/sessions/<%= @user.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Log Out">
   </form>
