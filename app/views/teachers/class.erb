@@ -1,18 +1,21 @@
-<h1>Class is in session.</h1>
+<div class="container">
+  <h1>Class is in session.</h1>
 
-<h3>Enter a question for the class:</h3>
+  <h3>Enter a question for the class:</h3>
 
-<form action='/questions/quick' method='post'>
-  <h4>Select question type:</h4>
-  <input type='text' name='first' placeholder='first number'>
-  <select name='category'>
-    <option>addition</option>
-    <option>subtraction</option>
-    <option>multiplication</option>
-    <option>division</option>
-  </select>
-  <input type='text' name='second' placeholder='second number'>
-  <input type='submit' value='generate question'>
-</form>
+  <form action='/questions/quick' method='post'>
+    <h4>Select question type:</h4>
+    <input type='text' name='first' placeholder='first number'>
+    <select name='category'>
+      <option>addition</option>
+      <option>subtraction</option>
+      <option>multiplication</option>
+      <option>division</option>
+    </select>
+    <input type='text' name='second' placeholder='second number'>
+    <input type='submit' value='generate question'>
+  </form>
 
-<a href="/users/<%= currentUser.id %>">Back to menu</a>
+  <a href="/users/<%= currentUser.id %>">Back to menu</a>
+
+</div>
