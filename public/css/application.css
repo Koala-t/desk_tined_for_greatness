@@ -8,3 +8,7 @@
 #loginForm {
   padding-top: 20px;
 }
+
+#menu {
+  display: none;
+}
