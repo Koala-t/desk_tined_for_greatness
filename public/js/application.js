@@ -165,14 +165,15 @@ function viewIndividualRecords() {
     event.preventDefault()
     var method = 'GET';
     var url = $(this)[0].href;
-    var element = $(this).parent();
+    var element = $(this).parent().children().last()[0];
 
     $.ajax({
       method: method,
       url: url
     })
       .done(function(form){
-        element.append(form);
+        $(element).append(form);
+        $(element).toggle();
       });
   });
 };

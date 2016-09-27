@@ -16,3 +16,7 @@
 .individualRecords .container {
   width: 80%;
 }
+
+.individualRecord {
+  display: none;
+}

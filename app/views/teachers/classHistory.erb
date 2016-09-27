@@ -9,7 +9,10 @@
 
   <ul class="individualRecords">
     <% @class.each do |student| %>
-      <li><a class="inspectStudentRecord" href="/users/<%= student.id %>/history"><%= student.name %></a></li>
+      <li>
+        <a class="inspectStudentRecord" href="/users/<%= student.id %>/history"><%= student.name %></a>
+        <div class="individualRecord"></div>
+      </li>
     <% end %>
   </ul>
 
