@@ -7,7 +7,7 @@
   <h4>Multiplication: <%= classPercentage('multiplication', @class) %></h4>
   <h4>Division: <%= classPercentage('division', @class) %></h4>
 
-  <ul>
+  <ul class="individualRecords">
     <% @class.each do |student| %>
       <li><a class="inspectStudentRecord" href="/users/<%= student.id %>/history"><%= student.name %></a></li>
     <% end %>

@@ -9,6 +9,8 @@ $(document).ready(function() {
   attendClass();
   viewClassRecords();
   viewIndividualRecords();
+  hostClass();
+  leaveClass();
 });
 
 function clearWindow() {
@@ -136,6 +138,8 @@ function attendClass() {
       .done(function(form){
         $("#homePage").append(form);
         $("#menu").css("display", "none");
+        $("#navBar").append(
+          '<a class="removable" id="retrieveMenu" href="/">Menu</a>');
       });
   });
 };
@@ -157,5 +161,54 @@ function viewClassRecords() {
 };
 
 function viewIndividualRecords() {
-  // teacher looks at individual records
+  $("#homePage").on("click", ".inspectStudentRecord", function(event){
+    event.preventDefault()
+    var method = 'GET';
+    var url = $(this)[0].href;
+    var element = $(this).parent();
+
+    $.ajax({
+      method: method,
+      url: url
+    })
+      .done(function(form){
+        element.append(form);
+      });
+  });
+};
+
+function hostClass() {
+  $("#homePage").on("click", "#hostClass", function(event){
+    event.preventDefault()
+    var method = 'GET';
+    var url = $(this)[0].href;
+
+    $.ajax({
+      method: method,
+      url: url
+    })
+      .done(function(form){
+        $("#homePage").append(form);
+        $("#menu").css("display", "none");
+        $("#navBar").append(
+          '<a class="removable" id="retrieveMenu" href="/">Menu</a>');
+      });
+  });
+};
+
+function leaveClass(){
+  $("#navBar").on("click", "#retrieveMenu", function(event){
+    event.preventDefault()
+    var method = 'GET';
+    var url = $(this)[0].href;
+
+    $.ajax({
+      method: method,
+      url: url
+    })
+      .done(function(form){
+        $(".removable").remove()
+        $("#menu").css("display", "block");
+      });
+  });
 };

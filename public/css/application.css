@@ -12,3 +12,7 @@
 #menu {
   display: none;
 }
+
+.individualRecords .container {
+  width: 80%;
+}
