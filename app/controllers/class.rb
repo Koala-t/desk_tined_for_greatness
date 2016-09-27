@@ -1,7 +1,15 @@
 get '/class/index' do
-  if currentUser.is_teacher
-    erb :'teachers/class'
+  if request.xhr?
+    if currentUser.is_teacher
+      erb :'teachers/class', layout: false
+    else
+      erb :'students/class', layout: false
+    end
   else
-    erb :'students/class'
+    if currentUser.is_teacher
+      erb :'teachers/class'
+    else
+      erb :'students/class'
+    end
   end
 end

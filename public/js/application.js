@@ -4,6 +4,8 @@ $(document).ready(function() {
   generateQuestionForm();
   displayNewQuestion();
   answerQuestion();
+  viewPersonalRecords();
+  attendClass();
 });
 
 function displayLoginForm() {
@@ -90,6 +92,39 @@ function answerQuestion(){
       .done(function(message){
         $("#answerQuestion").parent().text(message);
         $("#answerQuestion").css("display", "none")
+      });
+  });
+};
+
+function viewPersonalRecords() {
+  $("#homePage").on("click", "#personalRecords", function(event){
+    event.preventDefault()
+    var method = 'GET';
+    var url = $(this)[0].href;
+
+    $.ajax({
+      method: method,
+      url: url
+    })
+      .done(function(form){
+        $("#homePage").append(form);
+      });
+  });
+};
+
+function attendClass() {
+  $("#homePage").on("click", "#studentAttend", function(event){
+    event.preventDefault()
+    var method = 'GET';
+    var url = $(this)[0].href;
+
+    $.ajax({
+      method: method,
+      url: url
+    })
+      .done(function(form){
+        $("#homePage").append(form);
+        $("#menu").css("display", "none");
       });
   });
 };

@@ -9,7 +9,11 @@ end
 
 get '/users/:id/history' do
   @user = User.find(params[:id])
-  erb :'students/history'
+  if request.xhr?
+    erb :'students/history', layout: false
+  else
+    erb :'students/history'
+  end
 end
 
 get '/users/:id/classHistory' do
