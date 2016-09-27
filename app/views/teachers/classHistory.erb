@@ -15,7 +15,7 @@
         <th>times incorrect</th>
         <th>percent correct</th>
       </tr>
-      <% list_class_results_by_number.each do |num, result| %>
+      <% list_class_results_by_number(Result.all).each do |num, result| %>
         <tr>
           <td><%= num %></td>
           <td><%= result[:correct] %></td>

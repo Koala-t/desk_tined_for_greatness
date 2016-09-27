@@ -1,0 +1,18 @@
+<div class="numbers_display table">
+    <table>
+      <tr>
+        <th>Number</th>
+        <th>times correct</th>
+        <th>times incorrect</th>
+        <th>percent correct</th>
+      </tr>
+      <% list_class_results_by_number(@user.results.where(question_type: @type)).each do |num, result| %>
+        <tr>
+          <td><%= num %></td>
+          <td><%= result[:correct] %></td>
+          <td><%= result[:incorrect] %></td>
+          <td><%= result[:percentage] %>%</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>

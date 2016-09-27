@@ -16,6 +16,17 @@ get '/users/:id/history' do
   end
 end
 
+get'/users/:id/history/:type' do
+  @user = User.find(params[:id])
+  @type = params[:type]
+
+  if request.xhr?
+    erb :'partials/_additionTable', layout: false
+  else
+    erb :'partials/_additionTable'
+  end
+end
+
 get '/users/:id/classHistory' do
   @class = currentUser.students
   if request.xhr?

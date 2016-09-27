@@ -59,14 +59,14 @@ helpers do
   #   return {correct: correct_nums, incorrect: incorrect_nums}
   # end
 
-  def find_correct_nums()
+  def find_correct_nums(results)
     correct_nums = {}
 
-    for i in 0..25
+    for i in 0..10
       correct_nums[i] = 0
     end
 
-    Result.all.each do |result|
+    results.each do |result|
       one = result.first_number
       two = result.second_number
 
@@ -78,14 +78,14 @@ helpers do
     return correct_nums
   end
 
-  def find_incorrect_nums()
+  def find_incorrect_nums(results)
     incorrect_nums = {}
 
     for i in 0..25
       incorrect_nums[i] = 0
     end
 
-    Result.all.each do |result|
+    results.each do |result|
       one = result.first_number
       two = result.second_number
 
@@ -97,9 +97,13 @@ helpers do
     return incorrect_nums
   end
 
-  def list_class_results_by_number()
-    correct = find_correct_nums
-    incorrect = find_incorrect_nums
+  # returns a hash of a number,
+    # the # of times it's been in a correctly answered question
+    # the # of times it's been in an incorrectly answered question
+    # the percentage of correct answers
+  def list_class_results_by_number(results)
+    correct = find_correct_nums(results)
+    incorrect = find_incorrect_nums(results)
     results = {}
 
     correct.each do |number, responses|

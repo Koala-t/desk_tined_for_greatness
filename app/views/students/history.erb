@@ -6,12 +6,26 @@
   <% end %>
 
   <div>
-    <h4>Addition: <%= percentage('addition', @user) %></h4>
-      
-    <h4>Subtraction: <%= percentage('subtraction', @user) %></h4>
-    <h4>Multiplication: <%= percentage('multiplication', @user) %></h4>
-    <h4>Division: <%= percentage('division', @user) %></h4>
+    <div class="resultCategory">
+      <h4>Addition: <%= percentage('addition', @user) %></h4>
+      <a href="/users/<%= @user.id %>/history/addition">numbers breakdown</a>
+    </div>
+    
+    <div class="resultCategory">
+      <h4>Subtraction: <%= percentage('subtraction', @user) %></h4>
+      <a href="/users/<%= @user.id %>/history/subtraction">numbers breakdown</a>
+    </div>  
+    
+    <div class="resultCategory">
+      <h4>Multiplication: <%= percentage('multiplication', @user) %></h4>
+      <a href="/users/<%= @user.id %>/history/multiplication">numbers breakdown</a>
+    </div>
+
+    <div class="resultCategory">
+      <h4>Division: <%= percentage('division', @user) %></h4>
+    </div>
   </div>
+
 
   <a href="/users/<%= currentUser.id %>">Back to menu</a>
 </div>

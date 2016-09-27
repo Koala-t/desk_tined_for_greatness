@@ -11,6 +11,7 @@ $(document).ready(function() {
   viewIndividualRecords();
   hostClass();
   leaveClass();
+  displayNumbersBreakdown();
 });
 
 function clearWindow() {
@@ -211,5 +212,26 @@ function leaveClass(){
         $(".removable").remove()
         $("#menu").css("display", "block");
       });
+  });
+};
+
+function displayNumbersBreakdown(){
+  $("#homePage").on("click", ".resultCategory a", function(event){
+    event.preventDefault();
+
+    var link = $(this)
+    var container = $(this).parent()
+    var linkPath = $(this).attr("href")
+    
+    var request = $.ajax({
+      method: 'GET',
+      url: linkPath
+    });
+
+    request.done(function(table){
+      console.log('yaaay')
+        $(container).append(table)
+        $(link).toggle()
+    });
   });
 };
