@@ -7,7 +7,16 @@ post '/results' do
                       student: currentUser)
 
   if result.save
-    redirect :'questions/new'
+    if request.xhr?
+      #check if the answer was right and return confirmation
+      if result.correct
+        "Correct!"
+      else
+        "Being terrible at something is the first step to being sorta good at something."
+      end
+    else
+      redirect :'questions/new'
+    end
   else
     redirect :'partials/_questionDisplay'
   end

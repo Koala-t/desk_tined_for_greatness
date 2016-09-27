@@ -1,5 +1,9 @@
 get '/questions/new' do
-  erb :'partials/_questionForm'
+  if request.xhr?
+    erb :'partials/_questionForm', layout: false
+  else
+    erb :'partials/_questionForm'
+  end
 end
 
 post '/questions' do
@@ -8,7 +12,12 @@ post '/questions' do
                           second: number(params[:maxValue]))
   if question.save
     session[:question_id] = question.id
-    redirect :'partials/_questionDisplay'
+    if request.xhr?
+      @question = Question.find(session[:question_id])
+      erb :"partials/_questionDisplay", layout: false
+    else
+      redirect :'partials/_questionDisplay'
+    end
   else
     redirect :'questions/new'
   end
