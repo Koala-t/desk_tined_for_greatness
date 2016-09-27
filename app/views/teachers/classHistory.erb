@@ -7,6 +7,39 @@
   <h4>Multiplication: <%= classPercentage('multiplication', @class) %></h4>
   <h4>Division: <%= classPercentage('division', @class) %></h4>
 
+
+  <div class="correct_numbers_display table">
+    <table>
+      <tr>
+        <th>Number</th>
+        <th># of times the number has been in a correctly answered question</th>
+      </tr>
+      <% find_nums()[:correct].each do |num| %>
+        <tr>
+          <td><%= num[0] %></td>
+          <td><%= num[1] %></td>
+        </tr>
+      <% end %>
+    </table>
+    
+  </div>
+  
+  <div class="incorrect_numbers_display table">
+    <table>
+      <tr>
+        <th>Number</th>
+        <th># of times the number has been in an incorrectly answered question</th>
+      </tr>
+      <% find_nums()[:incorrect].each do |num| %>
+        <tr>
+          <td><%= num[0] %></td>
+          <td><%= num[1] %></td>
+        </tr>
+      <% end %>
+    </table>
+    
+  </div>
+
   <ul class="individualRecords">
     <% @class.each do |student| %>
       <li>
