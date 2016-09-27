@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  clearWindow();
   displayLoginForm();
   login();
   generateQuestionForm();
@@ -6,7 +7,17 @@ $(document).ready(function() {
   answerQuestion();
   viewPersonalRecords();
   attendClass();
+  viewClassRecords();
+  viewIndividualRecords();
 });
+
+function clearWindow() {
+  $("#navBar").on("click", "#clearWindow", function(event){
+    event.preventDefault()
+    
+    $(".removable").remove();
+  });
+};
 
 function displayLoginForm() {
   $("#navBar").on("click", "#signIn", function(event) {
@@ -127,4 +138,24 @@ function attendClass() {
         $("#menu").css("display", "none");
       });
   });
+};
+
+function viewClassRecords() {
+  $("#homePage").on("click", "#classRecords", function(event){
+    event.preventDefault()
+    var method = 'GET';
+    var url = $(this)[0].href;
+
+    $.ajax({
+      method: method,
+      url: url
+    })
+      .done(function(form){
+        $("#homePage").append(form);
+      });
+  });
+};
+
+function viewIndividualRecords() {
+  // teacher looks at individual records
 };

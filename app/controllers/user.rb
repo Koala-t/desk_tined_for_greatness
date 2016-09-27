@@ -18,5 +18,9 @@ end
 
 get '/users/:id/classHistory' do
   @class = currentUser.students
-  erb :'teachers/classHistory'
+  if request.xhr?
+    erb :'teachers/classHistory', layout: false
+  else
+    erb :'teachers/classHistory'
+  end
 end

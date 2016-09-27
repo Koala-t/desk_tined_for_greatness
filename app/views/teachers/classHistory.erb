@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container removable">
   <h1>Results:</h1>
 
   <h3>Class results:</h3>
@@ -9,7 +9,7 @@
 
   <ul>
     <% @class.each do |student| %>
-      <li><a href="/users/<%= student.id %>/history"><%= student.name %></a></li>
+      <li><a class="inspectStudentRecord" href="/users/<%= student.id %>/history"><%= student.name %></a></li>
     <% end %>
   </ul>
 
