@@ -1,0 +1,22 @@
+.container {
+  margin: 20px auto;
+  width: 800px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+
+#loginForm {
+  padding-top: 20px;
+}
+
+#menu {
+  display: none;
+}
+
+.individualRecords .container {
+  width: 80%;
+}
+
+.individualRecord {
+  display: none;
+}

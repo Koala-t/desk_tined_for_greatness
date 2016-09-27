@@ -1,0 +1,15 @@
+<div class="container removable">
+  <form id="generateQuestion" action='/questions' method='post'>
+    <h4>Select question type:</h4>
+    <select name='category'>
+      <option>addition</option>
+      <option>subtraction</option>
+      <option>multiplication</option>
+      <option>division</option>
+    </select>
+    <input type='text' name='maxValue' placeholder='enter a maximum'>
+    <input type='submit' value='generate question'>
+  </form>
+
+  <a href="/users/<%= currentUser.id %>">Back to menu</a>
+</div>
