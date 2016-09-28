@@ -81,7 +81,7 @@ helpers do
   def find_incorrect_nums(results)
     incorrect_nums = {}
 
-    for i in 0..25
+    for i in 0..10
       incorrect_nums[i] = 0
     end
 

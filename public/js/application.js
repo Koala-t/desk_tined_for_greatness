@@ -12,6 +12,7 @@ $(document).ready(function() {
   hostClass();
   leaveClass();
   displayNumbersBreakdown();
+  displayNumbersChart();
 });
 
 function clearWindow() {
@@ -216,7 +217,7 @@ function leaveClass(){
 };
 
 function displayNumbersBreakdown(){
-  $("#homePage").on("click", ".resultCategory a", function(event){
+  $("#homePage").on("click", ".resultTable", function(event){
     event.preventDefault();
 
     var link = $(this)
@@ -229,9 +230,31 @@ function displayNumbersBreakdown(){
     });
 
     request.done(function(table){
-      console.log('yaaay')
-        $(container).append(table)
-        $(link).toggle()
+      $(container).append(table)
+      $(link).toggle()
+    });
+  });
+};
+
+function displayNumbersChart(){
+  $("#homePage").on("click", ".resultChart", function(event){
+    event.preventDefault();
+
+    var link = $(this)
+    var container = $(this).parent()[0]
+    var linkPath = $(this).attr("href")
+
+    console.log(link)
+    console.log(container)
+    
+    var request = $.ajax({
+      method: 'GET',
+      url: linkPath
+    });
+
+    request.done(function(chart){
+      $(container).append(chart)
+      $(link).toggle()
     });
   });
 };
