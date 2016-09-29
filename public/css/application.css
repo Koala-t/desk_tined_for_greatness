@@ -3,10 +3,11 @@
   width: 800px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  background-color: white;
 }
 
 #loginForm {
-  padding-top: 20px;
+  display: none;
 }
 
 #menu {
@@ -28,4 +29,13 @@
 .chartDisplay {
   margin: 10px auto;
   max-width: 500px;
+}
+
+body {
+  margin: 0;
+  background: url('http://www.planwallpaper.com/static/images/simple_blue_background-wallpaper-1920x1200.jpg');
+  background-size: 1440px 800px;
+  background-repeat:repeat;
+  display: compact;
+  font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

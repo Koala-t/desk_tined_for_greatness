@@ -31,7 +31,7 @@ function displayLoginForm() {
       url: '/sessions/new'
     })
       .done(function(form){
-        $("#navBar").append(form); 
+        $("#loginForm").css("display", "block"); 
         $("#signIn").css("display", "none"); 
       });
   });
@@ -223,7 +223,6 @@ function displayNumbersBreakdown(){
     var link = $(this)
     var container = $(this).parent()
     var linkPath = $(this).attr("href")
-    
     var request = $.ajax({
       method: 'GET',
       url: linkPath

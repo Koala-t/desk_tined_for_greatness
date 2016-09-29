@@ -15,14 +15,14 @@
     
     <div class="resultCategory">
       <h4>Subtraction: <%= percentage('subtraction', @user) %></h4>
-      <a href="/users/<%= @user.id %>/history/subtraction">numbers breakdown</a>
+      <a class="resultTable" href="/users/<%= @user.id %>/history/subtraction">numbers breakdown</a>
       <a class="resultChart" href="/users/<%= @user.id %>/history/subtraction/incorrect/chart">incorrect numbers chart</a>
       <a class="resultChart" href="/users/<%= @user.id %>/history/subtraction/correct/chart">correct numbers chart</a>
     </div>  
     
     <div class="resultCategory">
       <h4>Multiplication: <%= percentage('multiplication', @user) %></h4>
-      <a href="/users/<%= @user.id %>/history/multiplication">numbers breakdown</a>
+      <a class="resultTable" href="/users/<%= @user.id %>/history/multiplication">numbers breakdown</a>
       <a class="resultChart" href="/users/<%= @user.id %>/history/multiplication/incorrect/chart">incorrect numbers chart</a>
       <a class="resultChart" href="/users/<%= @user.id %>/history/multiplication/correct/chart">correct numbers chart</a>
     </div>
