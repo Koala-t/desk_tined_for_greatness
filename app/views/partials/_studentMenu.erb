@@ -1,10 +1,10 @@
 <h1>Welcome back <%= @user.name %>!</h1>
 
-<ul>
+<ul class="nav nav-pills">
   <h3>Would you like to...</h3>
-  <li><a id="generateQuestionForm" href="/questions/new">Answer a question?</a></li>
-  <li><a id="personalRecords" href="/users/<%= @user.id %>/history">See what needs practice?</a></li>
-  <li><a id="studentAttend" href="/class/index">Start Class?</a></li>
+  <li role="presentation"><a id="generateQuestionForm" href="/questions/new">Answer a question?</a></li>
+  <li role="presentation"><a id="personalRecords" href="/users/<%= @user.id %>/history">See what needs practice?</a></li>
+  <li role="presentation"><a id="studentAttend" href="/class/index">Start Class?</a></li>
 </ul>
 
 <form action="/sessions/<%= @user.id %>" method="post">

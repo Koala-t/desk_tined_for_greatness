@@ -4,6 +4,7 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
   background-color: white;
+  border-radius: 5px;
 }
 
 #loginForm {
@@ -22,8 +23,9 @@
   display: none;
 }
 
-.table, th, td {
-  border: 1px solid black;
+.table {
+  width: 70%;
+  margin: auto;
 }
 
 .chartDisplay {

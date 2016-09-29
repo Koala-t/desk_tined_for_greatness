@@ -1,4 +1,4 @@
-<div class="container removable"> 
+<div class="container removable right"> 
   <h3><%= "#{@question.first} #{operator(@question.category)} #{@question.second}" %> = </h3>
 
   <form id="answerQuestion" action="/results" method="post">
@@ -6,5 +6,4 @@
     <input type='submit' value="Done">
   </form>
 
-  <a href="/users/<%= currentUser.id %>">Back to menu</a>
 </div>

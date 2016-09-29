@@ -13,6 +13,7 @@ $(document).ready(function() {
   leaveClass();
   displayNumbersBreakdown();
   displayNumbersChart();
+  displayClassChart();
 });
 
 function clearWindow() {
@@ -31,7 +32,7 @@ function displayLoginForm() {
       url: '/sessions/new'
     })
       .done(function(form){
-        $("#loginForm").css("display", "block"); 
+        $("#loginForm").css("display", "inline-block"); 
         $("#signIn").css("display", "none"); 
       });
   });
@@ -242,9 +243,6 @@ function displayNumbersChart(){
     var link = $(this)
     var container = $(this).parent()[0]
     var linkPath = $(this).attr("href")
-
-    console.log(link)
-    console.log(container)
     
     var request = $.ajax({
       method: 'GET',
@@ -254,6 +252,29 @@ function displayNumbersChart(){
     request.done(function(chart){
       $(container).append(chart)
       $(link).toggle()
+    });
+  });
+};
+
+function displayClassChart(){
+  $("#homePage").on("click", ".class-tab", function(event){
+    event.preventDefault();
+
+    var tab = $(this)[0];
+    var link = $(tab).find("a")[0];
+    var path = $(link).attr("href");
+    
+    var request = $.ajax({
+      method: 'GET',
+      url: path
+    });
+
+    request.done(function(chart){
+      $("#display_for_charts").empty()
+      $("#display_for_charts").append(chart);
+
+      $(".class-tab").removeClass("active");
+      $(tab).addClass("active");
     });
   });
 };

@@ -8,30 +8,27 @@
   <div>
     <div class="resultCategory">
       <h4>Addition: <%= percentage('addition', @user) %></h4>
-      <a class="resultTable" href="/users/<%= @user.id %>/history/addition">numbers breakdown</a>
-      <a class="resultChart" href="/users/<%= @user.id %>/history/addition/incorrect/chart">incorrect numbers chart</a>
-      <a class="resultChart" href="/users/<%= @user.id %>/history/addition/correct/chart">correct numbers chart</a>
+      <a class="resultTable btn btn-default" href="/users/<%= @user.id %>/history/addition">numbers breakdown</a>
+      <a class="resultChart btn btn-default" href="/users/<%= @user.id %>/history/addition/incorrect/chart">incorrect numbers chart</a>
+      <a class="resultChart btn btn-default" href="/users/<%= @user.id %>/history/addition/correct/chart">correct numbers chart</a>
     </div>
     
     <div class="resultCategory">
       <h4>Subtraction: <%= percentage('subtraction', @user) %></h4>
-      <a class="resultTable" href="/users/<%= @user.id %>/history/subtraction">numbers breakdown</a>
-      <a class="resultChart" href="/users/<%= @user.id %>/history/subtraction/incorrect/chart">incorrect numbers chart</a>
-      <a class="resultChart" href="/users/<%= @user.id %>/history/subtraction/correct/chart">correct numbers chart</a>
+      <a class="resultTable btn btn-default" href="/users/<%= @user.id %>/history/subtraction">numbers breakdown</a>
+      <a class="resultChart btn btn-default" href="/users/<%= @user.id %>/history/subtraction/incorrect/chart">incorrect numbers chart</a>
+      <a class="resultChart btn btn-default" href="/users/<%= @user.id %>/history/subtraction/correct/chart">correct numbers chart</a>
     </div>  
     
     <div class="resultCategory">
       <h4>Multiplication: <%= percentage('multiplication', @user) %></h4>
-      <a class="resultTable" href="/users/<%= @user.id %>/history/multiplication">numbers breakdown</a>
-      <a class="resultChart" href="/users/<%= @user.id %>/history/multiplication/incorrect/chart">incorrect numbers chart</a>
-      <a class="resultChart" href="/users/<%= @user.id %>/history/multiplication/correct/chart">correct numbers chart</a>
+      <a class="resultTable btn btn-default" href="/users/<%= @user.id %>/history/multiplication">numbers breakdown</a>
+      <a class="resultChart btn btn-default" href="/users/<%= @user.id %>/history/multiplication/incorrect/chart">incorrect numbers chart</a>
+      <a class="resultChart btn btn-default" href="/users/<%= @user.id %>/history/multiplication/correct/chart">correct numbers chart</a>
     </div>
 
     <div class="resultCategory">
       <h4>Division: <%= percentage('division', @user) %></h4>
     </div>
   </div>
-
-
-  <a href="/users/<%= currentUser.id %>">Back to menu</a>
 </div>
