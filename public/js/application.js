@@ -224,14 +224,19 @@ function displayNumbersBreakdown(){
     var link = $(this)
     var container = $(this).parent()
     var linkPath = $(this).attr("href")
+    var display = container.find('div')
+
     var request = $.ajax({
       method: 'GET',
       url: linkPath
     });
 
+    console.log(container)
+
     request.done(function(table){
-      $(container).append(table)
-      $(link).toggle()
+      $("#addition_display").empty()
+      $("#addition_display").append(table)
+      // $(link).toggle()
     });
   });
 };
@@ -250,8 +255,9 @@ function displayNumbersChart(){
     });
 
     request.done(function(chart){
-      $(container).append(chart)
-      $(link).toggle()
+      $("#addition_display").empty()
+      $("#addition_display").append(chart)
+      // $(link).toggle()
     });
   });
 };
