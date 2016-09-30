@@ -54,7 +54,7 @@ function login() {
       .done(function(menu){
         $("#loginForm").css("display", "none");
         $("#menu").append(menu);
-        $("#menu").css("display", "block");
+        $("#menu").css("display", "inline");
       });
   });
 };
@@ -175,6 +175,7 @@ function viewIndividualRecords() {
       url: url
     })
       .done(function(form){
+        $(element).empty();
         $(element).append(form);
         $(element).toggle();
       });
@@ -231,11 +232,9 @@ function displayNumbersBreakdown(){
       url: linkPath
     });
 
-    console.log(container)
-
     request.done(function(table){
-      $("#addition_display").empty()
-      $("#addition_display").append(table)
+      $(".individual_display").empty()
+      $(".individual_display").append(table)
       // $(link).toggle()
     });
   });
@@ -255,8 +254,8 @@ function displayNumbersChart(){
     });
 
     request.done(function(chart){
-      $("#addition_display").empty()
-      $("#addition_display").append(chart)
+      $(".individual_display").empty()
+      $(".individual_display").append(chart)
       // $(link).toggle()
     });
   });

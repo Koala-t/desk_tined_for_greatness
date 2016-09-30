@@ -18,6 +18,6 @@ helpers do
   def classPercentage(type, students)
     tot = total(type, students).to_f
     cor = correct(type, students).to_f
-    "#{((cor / tot) * 100.0).round}% correct out of #{tot} questions"
+    "#{((cor / tot) * 100.0).round}% correct out of #{tot.to_i} questions"
   end
 end

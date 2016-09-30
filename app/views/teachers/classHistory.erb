@@ -20,11 +20,9 @@
     <%= erb :'partials/_table' %>
   </div>
 
-
-
-  <ul class="individualRecords">
+  <ul class="individualRecords nav nav-pills">
     <% @class.each do |student| %>
-      <li>
+      <li role="presentation">
         <a class="inspectStudentRecord" href="/users/<%= student.id %>/history"><%= student.name %></a>
         <div class="individualRecord"></div>
       </li>
