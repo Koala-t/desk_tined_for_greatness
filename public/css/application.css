@@ -26,8 +26,9 @@
 
 .individualRecord {
   display: none;
-  width: 130%;
-  margin-left: -11%;
+  margin: auto;
+  margin-left: -15%;
+  margin-right: 10%;
 }
 
 .table {
