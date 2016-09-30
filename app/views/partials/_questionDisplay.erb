@@ -1,0 +1,9 @@
+<div id="q-display" class="container removable right"> 
+  <h3 class="question-display"><%= "#{@question.first} #{operator(@question.category)} #{@question.second}" %> = </h3>
+
+  <form class="question-display" id="answerQuestion" action="/results" method="post">
+    <input type='text' name='answer' placeholder="enter the answer here">
+    <input type='submit' value="Done">
+  </form>
+
+</div>

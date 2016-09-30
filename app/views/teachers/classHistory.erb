@@ -1,0 +1,33 @@
+<div class="container removable">
+  <h1>Results:</h1>
+
+  <h3>Class results:</h3>
+  <h4>Addition: <%= classPercentage('addition', @class) %></h4>
+  <h4>Subtraction: <%= classPercentage('subtraction', @class) %></h4>
+  <h4>Multiplication: <%= classPercentage('multiplication', @class) %></h4>
+  <h4>Division: <%= classPercentage('division', @class) %></h4>
+
+  <ul class="nav nav-tabs">
+    <li class="class-tab active" role="presentation"><a href="/class/history/numbers">Number Breakdown</a></li>
+    <li class="class-tab" role="presentation">
+      <a href="/class/history/addition/chart">Chart-addition</a>
+    </li>
+    <li class="class-tab" role="presentation"><a href="/class/history/subtraction/chart">Chart-subtraction</a></li>
+    <li class="class-tab" role="presentation"><a href="/class/history/multiplication/chart">Chart-multiplication</a></li>
+  </ul>
+
+  <div id="display_for_charts">
+    <%= erb :'partials/_table' %>
+  </div>
+
+  <div class="individual_display"></div>
+
+  <ul class="individualRecords nav nav-pills nav-stacked">
+    <% @class.each do |student| %>
+      <li role="presentation">
+        <a class="inspectStudentRecord" href="/users/<%= student.id %>/history"><%= student.name %></a>
+        <div class="individualRecord"></div>
+      </li>
+    <% end %>
+  </ul>
+</div>
