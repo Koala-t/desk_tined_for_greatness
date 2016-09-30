@@ -46,23 +46,23 @@ results = [
   {first_number: 8, second_number: 8, correct: true, question_type: "addition", student_id: User.find_by(name: "Lilly").id},
 ]
 
-results.each do |result|
-  Result.create(result)
-end
+# results.each do |result|
+#   Result.create(result)
+# end
 categories = ['addition', 'subtraction', 'multiplication']
 numbers = [0,1,2,3,4,5,6,7,8,9]
-correct? = [true, false]
-users = [1,2,3,4]
+boolean = [true, false]
+user_ids = [1,2,3,4]
 
-users.each do |user|
-  this_user = User.find(user)
-  categories.each do |category|
-    numbers.each do |number|
-      Question.create(category: category, first: number, second: number)
-      Result.create(first_number: number, second_number: number, question_type: category, correct: correct?.sample, student: this_user)
-    end
-  end
-end
+# user_ids.each do |id|
+#   this_user = User.find(id)
+#   categories.each do |category|
+#     numbers.each do |number|
+#       Question.create(category: category, first: number, second: number)
+#       Result.create(first_number: number, second_number: number, question_type: category, correct: boolean.sample, student: this_user)
+#     end
+#   end
+# end
 
 
 
