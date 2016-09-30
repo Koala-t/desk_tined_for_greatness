@@ -3,14 +3,21 @@
   width: 800px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 25%;
 }
 
 #loginForm {
-  padding-top: 20px;
+  display: none;
 }
 
 #menu {
   display: none;
+  width: 20%;
+  height: 100%;
+  float: left;
+  margin-left: 2%;
 }
 
 .individualRecords .container {
@@ -19,8 +26,38 @@
 
 .individualRecord {
   display: none;
+  margin: auto;
+  margin-left: -15%;
+  margin-right: 10%;
 }
 
-.table, th, td {
-  border: 1px solid black;
+.table {
+  width: 70%;
+  margin: auto;
+}
+
+.chartDisplay {
+  margin: 10px auto;
+  max-width: 500px;
+}
+
+body {
+  margin: 0;
+  background: url('http://www.planwallpaper.com/static/images/simple_blue_background-wallpaper-1920x1200.jpg');
+  background-size: 1440px 800px;
+  background-repeat:repeat;
+  display: compact;
+  font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#question-form {
+  height: 6em;
+}
+
+#q-display {
+  height: 6em;
+}
+
+.question-display {
+  display: inline-block;
 }

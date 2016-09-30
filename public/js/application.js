@@ -11,6 +11,9 @@ $(document).ready(function() {
   viewIndividualRecords();
   hostClass();
   leaveClass();
+  displayNumbersBreakdown();
+  displayNumbersChart();
+  displayClassChart();
 });
 
 function clearWindow() {
@@ -29,7 +32,7 @@ function displayLoginForm() {
       url: '/sessions/new'
     })
       .done(function(form){
-        $("#navBar").append(form); 
+        $("#loginForm").css("display", "inline-block"); 
         $("#signIn").css("display", "none"); 
       });
   });
@@ -51,7 +54,7 @@ function login() {
       .done(function(menu){
         $("#loginForm").css("display", "none");
         $("#menu").append(menu);
-        $("#menu").css("display", "block");
+        $("#menu").css("display", "inline");
       });
   });
 };
@@ -172,6 +175,7 @@ function viewIndividualRecords() {
       url: url
     })
       .done(function(form){
+        $(element).empty();
         $(element).append(form);
         $(element).toggle();
       });
@@ -211,5 +215,73 @@ function leaveClass(){
         $(".removable").remove()
         $("#menu").css("display", "block");
       });
+  });
+};
+
+function displayNumbersBreakdown(){
+  $("#homePage").on("click", ".resultTable", function(event){
+    event.preventDefault();
+
+    var link = $(this)
+    var container = $(this).parent()
+    var linkPath = $(this).attr("href")
+    var display = container.find('div')
+
+    var request = $.ajax({
+      method: 'GET',
+      url: linkPath
+    });
+
+    request.done(function(table){
+      $(".individual_display").first().empty()
+      $(".individual_display").first().append(table)
+      // $(link).toggle()
+    });
+  });
+};
+
+function displayNumbersChart(){
+  $("#homePage").on("click", ".resultChart", function(event){
+    event.preventDefault();
+
+    var link = $(this)
+    var container = $(this).parent()[0]
+    var linkPath = $(this).attr("href")
+    
+    var request = $.ajax({
+      method: 'GET',
+      url: linkPath
+    });
+
+    // debugger;
+
+    request.done(function(chart){
+      $(".individual_display").first().empty()
+      $(".individual_display").first().append(chart)
+      // $(link).toggle()
+    });
+  });
+};
+
+function displayClassChart(){
+  $("#homePage").on("click", ".class-tab", function(event){
+    event.preventDefault();
+
+    var tab = $(this)[0];
+    var link = $(tab).find("a")[0];
+    var path = $(link).attr("href");
+    
+    var request = $.ajax({
+      method: 'GET',
+      url: path
+    });
+
+    request.done(function(chart){
+      $("#display_for_charts").empty()
+      $("#display_for_charts").append(chart);
+
+      $(".class-tab").removeClass("active");
+      $(tab).addClass("active");
+    });
   });
 };

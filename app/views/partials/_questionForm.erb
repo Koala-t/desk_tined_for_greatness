@@ -1,4 +1,4 @@
-<div class="container removable">
+<div id="question-form" class="container removable">
   <form id="generateQuestion" action='/questions' method='post'>
     <h4>Select question type:</h4>
     <select name='category'>
@@ -11,5 +11,4 @@
     <input type='submit' value='generate question'>
   </form>
 
-  <a href="/users/<%= currentUser.id %>">Back to menu</a>
 </div>

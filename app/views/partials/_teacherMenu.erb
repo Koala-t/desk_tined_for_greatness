@@ -1,9 +1,9 @@
 <h1>Welcome back <%= @user.name %>!</h1>
 
-  <ul>
+  <ul class="nav nav-pills">
     <h3>Would you like to...</h3>
-    <li><a id="classRecords" href="/users/<%= @user.id %>/classHistory">See your students results?</a></li>
-    <li><a id="hostClass" href="/class/index">Start Class?</a></li>
+    <li role="presentation"><a id="classRecords" href="/users/<%= @user.id %>/classHistory">See your students results?</a></li>
+    <li role="presentation"><a id="hostClass" href="/class/index">Start Class?</a></li>
   </ul>
 
   <form action="/sessions/<%= currentUser.id %>" method="post">

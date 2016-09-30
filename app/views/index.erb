@@ -1,15 +1,25 @@
 <div id="homePage">
-  <div id="navBar" class="container">
-    <h1>DESK</h1>
-    <!-- add user information or signin link -->
-    <a id="signIn" href="/sessions/new">Sign in</a>
-    <a id="clearWindow" href="/">clear window</a>
-    <!-- add new user functionality -->
+  <div id="navBar" class="navbar navbar-default">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <h1>DESK</h1>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li >
+          <%= erb :'partials/_loginForm', layout: false%>
+        </li>
+        <li><a id="signIn" href="/sessions/new">Sign in</a></li>
+        <li><a id="clearWindow" href="/">clear window</a></li>
+      </ul>
+
+      <!-- add user information or signin link -->
+      <!-- add new user functionality -->
+
+    </div>
   </div>
 
   <div id="menu" class="container"></div>
   <!-- description of the site? -->
-
-
-	
 </div>
