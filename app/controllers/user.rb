@@ -19,7 +19,7 @@ end
 get'/users/:id/history/:type' do
   @user = User.find(params[:id])
   @type = params[:type]
-
+  
   if request.xhr?
     erb :'partials/_additionTable', layout: false
   else

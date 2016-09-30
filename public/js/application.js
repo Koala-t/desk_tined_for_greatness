@@ -235,7 +235,6 @@ function displayNumbersBreakdown(){
     request.done(function(table){
       $(".individual_display").first().empty()
       $(".individual_display").first().append(table)
-      // $(link).toggle()
     });
   });
 };
@@ -253,12 +252,9 @@ function displayNumbersChart(){
       url: linkPath
     });
 
-    // debugger;
-
     request.done(function(chart){
       $(".individual_display").first().empty()
       $(".individual_display").first().append(chart)
-      // $(link).toggle()
     });
   });
 };

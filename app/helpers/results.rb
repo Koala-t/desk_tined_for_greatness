@@ -36,6 +36,42 @@ helpers do
     end
   end
 
+  def recommendations(type, user)
+    records = user.results.where(correct: false).where(question_type: type)
+    organizedRecords = {}
+    records.each do |record|
+      first = organizedRecords[record.first_number]
+      second = organizedRecords[record.second_number]
+      if first
+        organizedRecords[record.first_number] += 1
+      else
+        organizedRecords[record.first_number] = 0
+      end
+
+      if second
+        organizedRecords[record.second_number] += 1
+      else
+        organizedRecords[record.second_number] = 0
+      end
+    end
+
+    results = []
+    3.times do
+      max = 0
+      candidate = nil
+      organizedRecords.each do |number, times_incorrect|
+        if times_incorrect > max
+          max = times_incorrect
+          candidate = number
+          p candidate
+        end
+      end
+      results << candidate
+      organizedRecords.delete(candidate)
+    end
+    return results
+  end
+
   # def find_nums()
   #   correct_nums = {}
   #   incorrect_nums = {}
